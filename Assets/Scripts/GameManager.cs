@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
             HandlePlayerLanding();
         }
     }
-
+    
     private void HandlePlayerLanding() {
 
         player.GetComponent<PlayerManager>().enabled = false;
@@ -37,6 +37,11 @@ public class GameManager : MonoBehaviour
         playerRb.isKinematic = true;
 
         player.transform.position = Vector2.Lerp(player.transform.position, landingTransform.position + landOffset, landSpeed * Time.deltaTime);
-        player.transform.rotation = Quaternion.Slerp(player.transform.rotation, Quaternion.Euler(Vector3.zero), landSpeed * Time.deltaTime);
+        //player.transform.rotation = Quaternion.Lerp(player.transform.rotation, Quaternion.Euler(Vector3.zero), landSpeed * Time.deltaTime);
+        Vector3 directionToFace = Vector3.forward;
+        Quaternion targetRotation = Quaternion.LookRotation(directionToFace);
+        player.transform.rotation = Quaternion.Slerp(player.transform.rotation, targetRotation, landSpeed * Time.deltaTime);
+        player.transform.up = Vector3.RotateTowards(player.transform.up, Vector2.up, landSpeed * Time.deltaTime, 1);
+        //playerRb.rotation = Mathf.Lerp(playerRb.rotation, 0, landSpeed * Time.deltaTime);
     }
 }

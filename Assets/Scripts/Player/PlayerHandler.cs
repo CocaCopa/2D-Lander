@@ -11,9 +11,10 @@ public class PlayerHandler : MonoBehaviour
         float invert = invertAxis ? 1 : -1;
         float horizontalInput = Input.GetAxisRaw("Horizontal") * invert;
         horizontalRotation += horizontalInput * rotationSpeed * Time.deltaTime;
-        Vector3 rotattion = Vector3.zero;
-        rotattion.z = horizontalRotation;
-        return Quaternion.Euler(rotattion);
+        horizontalRotation = Mathf.Clamp(horizontalRotation, -89, 89);
+        Vector3 rotation = Vector3.zero;
+        rotation.z = horizontalRotation;
+        return Quaternion.Euler(rotation);
     }
 
     public bool GetMoveInput() {
