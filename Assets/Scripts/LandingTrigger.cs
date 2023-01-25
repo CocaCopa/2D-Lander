@@ -17,7 +17,7 @@ public class LandingTrigger : MonoBehaviour
             
             if (playerAngle > acceptableAngle) {
 
-                GameManager.instance.playerDied = true;
+                GameManager.instance.PlayerDied = true;
                 Debug.Log("Player Angle: " + playerAngle + " --- " + "Acceptable Angle: " + acceptableAngle);
                 return;
             }
@@ -27,17 +27,13 @@ public class LandingTrigger : MonoBehaviour
 
             if (playerSpeed > acceptableSpeed) {
 
-                GameManager.instance.playerDied = true;
+                GameManager.instance.PlayerDied = true;
                 Debug.Log("Player Speed: " + playerSpeed + " --- " + "Acceptable Speed: " + acceptableSpeed);
                 return;
             }
 
-            GameManager.instance.playerLanded = true;
+            player.GetComponent<PlayerManager>().EnableAutoPilot = true;
+            GameManager.instance.PlayerLanded = true;
         }
-    }
-
-    public float GetAcceptableAngle() {
-
-        return acceptableAngle;
     }
 }

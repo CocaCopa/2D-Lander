@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fb52ef8cce9be42ae38096a7e8566b, type: 3}
   m_Name: SpaceShip1
   m_EditorClassIdentifier: 
-  healthPoints: 0
-  fuelConsumptionRate: 0
+  healthPoints: 100
+  maxSteerAngle: 90
+  fuelCapacity: 100
+  fuelConsumptionRate: 0.0001
   shipMass: 20
   force: 10
   maxVeclocity: 12
-  rotationSpeed: 100
+  rotationSpeed: 180

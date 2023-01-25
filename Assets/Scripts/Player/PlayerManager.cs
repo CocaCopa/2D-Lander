@@ -7,22 +7,28 @@ public class PlayerManager : MonoBehaviour
 {
     [SerializeField] SpaceshipData m_data;
     [SerializeField] bool invertAxis = false;
-    [SerializeField] float smoothRotationTime;
 
-    PlayerHandler handler;
+    PlayerMovement handler;
     Rigidbody2D rigidBody;
 
-    float forceAmount = 0;
-    float maxVelocity = 0;
-    float rotationSpeed = 0;
+    public bool EnableAutoPilot { get; set; }
+
+    #region Spaceship Stats variables
+    float forceAmount;
+    float maxSteerAngle;
+    float fuelCapacity;
+    float fuelConsumptionRate;
+    float maxVelocity;
+    float rotationSpeed;
     bool b_move = false;
+    #endregion
 
     private void Awake() {
 
         rigidBody = GetComponent<Rigidbody2D>();
-        handler = GetComponent<PlayerHandler>();
+        handler = GetComponent<PlayerMovement>();
 
-        InitializeVariables();
+        InitializeStats();
     }
 
     private void FixedUpdate() {
@@ -36,15 +42,42 @@ public class PlayerManager : MonoBehaviour
 
     private void Update() {
 
-        b_move = handler.GetMoveInput();
-        transform.rotation = handler.HandleRotation(invertAxis, rotationSpeed);
+        bool controlsEnabled = EnableAutoPilot == false && fuelCapacity > 0;
+
+        if (controlsEnabled) {
+
+            b_move = handler.GetMoveInput();
+            transform.rotation = handler.HandleRotation(invertAxis, rotationSpeed, maxSteerAngle);
+        }
+        else {
+            b_move = false;
+        }
+
+        if (b_move) {
+            
+            fuelCapacity -= fuelConsumptionRate * Time.deltaTime;
+        }
+
+        if (EnableAutoPilot) {
+
+            handler.HandleAutoLanding();
+        }
+
     }
 
-    private void InitializeVariables() {
+    private void InitializeStats() {
 
-        forceAmount = m_data.force;
-        maxVelocity = m_data.maxVeclocity;
-        rigidBody.mass = m_data.shipMass;
-        rotationSpeed = m_data.rotationSpeed;
+        forceAmount         = m_data.force;
+        maxSteerAngle       = m_data.maxSteerAngle;
+        fuelCapacity        = m_data.fuelCapacity;
+        fuelConsumptionRate = m_data.fuelConsumptionRate;
+        maxVelocity         = m_data.maxVeclocity;
+        rigidBody.mass      = m_data.shipMass;
+        rotationSpeed       = m_data.rotationSpeed;
     }
- }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+
+        GameManager.instance.PlayerDied = true;
+    }
+}
