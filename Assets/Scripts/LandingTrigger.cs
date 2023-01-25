@@ -35,4 +35,9 @@ public class LandingTrigger : MonoBehaviour
             GameManager.instance.playerLanded = true;
         }
     }
+
+    public float GetAcceptableAngle() {
+
+        return acceptableAngle;
+    }
 }

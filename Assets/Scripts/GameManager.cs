@@ -14,9 +14,13 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool playerLanded = false;
     [HideInInspector] public bool playerDied = false;
 
+    LandingTrigger landingTrigger;
+
     private void Awake() {
 
         instance = this;
+
+        landingTrigger = GameObject.Find("LandingTrigger").GetComponent<LandingTrigger>();
     }
 
     private void Update() {
@@ -37,11 +41,11 @@ public class GameManager : MonoBehaviour
         playerRb.isKinematic = true;
 
         player.transform.position = Vector2.Lerp(player.transform.position, landingTransform.position + landOffset, landSpeed * Time.deltaTime);
-        //player.transform.rotation = Quaternion.Lerp(player.transform.rotation, Quaternion.Euler(Vector3.zero), landSpeed * Time.deltaTime);
-        Vector3 directionToFace = Vector3.forward;
-        Quaternion targetRotation = Quaternion.LookRotation(directionToFace);
-        player.transform.rotation = Quaternion.Slerp(player.transform.rotation, targetRotation, landSpeed * Time.deltaTime);
-        player.transform.up = Vector3.RotateTowards(player.transform.up, Vector2.up, landSpeed * Time.deltaTime, 1);
-        //playerRb.rotation = Mathf.Lerp(playerRb.rotation, 0, landSpeed * Time.deltaTime);
+
+        float angle = Vector3.SignedAngle(player.transform.up, Vector3.up, Vector3.up);
+        Vector3 target = Quaternion.AngleAxis(-angle, player.transform.up) * Vector2.up;
+        float rotationSpeed = angle;
+        rotationSpeed = Mathf.Clamp(rotationSpeed, landSpeed * 2, angle / 10);
+        player.transform.up = Vector2.Lerp(player.transform.up, target, rotationSpeed * Time.deltaTime);
     }
 }
