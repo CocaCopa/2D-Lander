@@ -1,7 +1,67 @@
 fileFormatVersion: 2
 guid: 2e112d25ad290614780b6a714c7febef
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 7801188294233476861
+    second: crater1_0
+  - first:
+      213: -8377651520998565749
+    second: crater1_1
+  - first:
+      213: 815496587618848226
+    second: crater1_2
+  - first:
+      213: 1613514243965008201
+    second: crater1_3
+  - first:
+      213: 7622667851992841435
+    second: crater1_4
+  - first:
+      213: 3695353284956615673
+    second: crater1_5
+  - first:
+      213: 1142166681294323379
+    second: crater1_6
+  - first:
+      213: -7646804245546772171
+    second: crater1_7
+  - first:
+      213: -8629103795786540494
+    second: crater1_8
+  - first:
+      213: -3198512485854962066
+    second: crater1_9
+  - first:
+      213: 5848973923181580516
+    second: crater1_10
+  - first:
+      213: 8188860248229484666
+    second: crater1_11
+  - first:
+      213: 6412074273963913901
+    second: crater1_12
+  - first:
+      213: 5566915834171690971
+    second: crater1_13
+  - first:
+      213: -5224866460565313114
+    second: crater1_14
+  - first:
+      213: -2521988567192268860
+    second: crater1_15
+  - first:
+      213: 4751330647414439772
+    second: crater1_16
+  - first:
+      213: -2473174895571479181
+    second: crater1_17
+  - first:
+      213: -1684565353810755915
+    second: crater1_18
+  - first:
+      213: 6300898665540041271
+    second: crater1_19
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +92,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -41,7 +101,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -65,7 +125,19 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -77,7 +149,427 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: crater1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3380
+        width: 710
+        height: 620
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfec8bfcb63634c60800000000000000
+      internalID: 7801188294233476861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crater1_1
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 3712
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b889ede045a9cbb80800000000000000
+      internalID: -8377651520998565749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crater1_2
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 2677
+        width: 793
+        height: 785
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ed809463d9315b00800000000000000
+      internalID: 815496587618848226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crater1_3
+      rect:
+        serializedVersion: 2
+        x: 1823
+        y: 2179
+        width: 684
+        height: 558
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9493197f7aa546610800000000000000
+      internalID: 1613514243965008201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crater1_4
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 2173
+        width: 381
+        height: 250
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdcb2d6560829c960800000000000000
+      internalID: 7622667851992841435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crater1_5
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 2027
+        width: 608
+        height: 427
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f3796ddb38884330800000000000000
+      internalID: 3695353284956615673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crater1_6
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 1807
+        width: 542
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3beb5d09b8ac9df00800000000000000
+      internalID: 1142166681294323379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crater1_7
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 1486
+        width: 722
+        height: 564
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5395c3d9d0811e590800000000000000
+      internalID: -7646804245546772171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crater1_8
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 1277
+        width: 745
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23a1b2211d34f3880800000000000000
+      internalID: -8629103795786540494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crater1_9
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 1251
+        width: 570
+        height: 437
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6e96fe27d99c93d0800000000000000
+      internalID: -3198512485854962066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crater1_10
+      rect:
+        serializedVersion: 2
+        x: 1864
+        y: 771
+        width: 683
+        height: 563
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e0d2cf3bcabb2150800000000000000
+      internalID: 5848973923181580516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crater1_11
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 638
+        width: 745
+        height: 495
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a781903620da4a170800000000000000
+      internalID: 8188860248229484666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crater1_12
+      rect:
+        serializedVersion: 2
+        x: 1159
+        y: 856
+        width: 444
+        height: 320
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da23a0d54934cf850800000000000000
+      internalID: 6412074273963913901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crater1_13
+      rect:
+        serializedVersion: 2
+        x: 1085
+        y: 539
+        width: 210
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdf0d46d478a14d40800000000000000
+      internalID: 5566915834171690971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crater1_14
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 478
+        width: 258
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a9e62bf2ab8d77b0800000000000000
+      internalID: -5224866460565313114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crater1_15
+      rect:
+        serializedVersion: 2
+        x: 1913
+        y: 75
+        width: 635
+        height: 521
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cf88ec92c8100dd0800000000000000
+      internalID: -2521988567192268860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crater1_16
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 39
+        width: 858
+        height: 494
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5f7099dc0e10f140800000000000000
+      internalID: 4751330647414439772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crater1_17
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 39
+        width: 579
+        height: 410
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3755c0239848dadd0800000000000000
+      internalID: -2473174895571479181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crater1_18
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 2815
+        width: 638
+        height: 520
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5befd256cb83f98e0800000000000000
+      internalID: -1684565353810755915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: crater1_19
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 1772
+        width: 610
+        height: 225
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73a3f35e3f9417750800000000000000
+      internalID: 6300898665540041271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

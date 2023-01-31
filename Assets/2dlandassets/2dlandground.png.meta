@@ -1,7 +1,67 @@
 fileFormatVersion: 2
 guid: 31e51af26bde818419d84c0f6c12c662
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -1314382246166812709
+    second: 2dlandground_0
+  - first:
+      213: 3753804922559580516
+    second: 2dlandground_1
+  - first:
+      213: -3674105835056342392
+    second: 2dlandground_2
+  - first:
+      213: -4739400643354151687
+    second: 2dlandground_3
+  - first:
+      213: 8947668725112159517
+    second: 2dlandground_4
+  - first:
+      213: 1054369488645962297
+    second: 2dlandground_5
+  - first:
+      213: -8756116279975477152
+    second: 2dlandground_6
+  - first:
+      213: 5629618861599775098
+    second: 2dlandground_7
+  - first:
+      213: -2812994396863466664
+    second: 2dlandground_8
+  - first:
+      213: 7364289878562158020
+    second: 2dlandground_9
+  - first:
+      213: -3214574307481392870
+    second: 2dlandground_10
+  - first:
+      213: -5131287867470850112
+    second: 2dlandground_11
+  - first:
+      213: -6243314505218502065
+    second: 2dlandground_12
+  - first:
+      213: -2274938381116769205
+    second: 2dlandground_13
+  - first:
+      213: -8400188565476934656
+    second: 2dlandground_14
+  - first:
+      213: 4788894904948311626
+    second: 2dlandground_15
+  - first:
+      213: -24025937093823193
+    second: 2dlandground_16
+  - first:
+      213: 6681209483432990178
+    second: 2dlandground_17
+  - first:
+      213: -2327208682143512303
+    second: 2dlandground_18
+  - first:
+      213: 7688955248590309275
+    second: 2dlandground_19
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -32,7 +92,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -41,7 +101,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -65,7 +125,19 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -77,7 +149,427 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: 2dlandground_0
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 3014
+        width: 2032
+        height: 957
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd7a52e9f4062cde0800000000000000
+      internalID: -1314382246166812709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2dlandground_1
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 3558
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 469c64540b1381430800000000000000
+      internalID: 3753804922559580516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2dlandground_2
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 2057
+        width: 2699
+        height: 868
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88ad6429534f20dc0800000000000000
+      internalID: -3674105835056342392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2dlandground_3
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 2547
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f43e9ca9344a3eb0800000000000000
+      internalID: -4739400643354151687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2dlandground_4
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 1163
+        width: 2210
+        height: 594
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1dbe287c418c2c70800000000000000
+      internalID: 8947668725112159517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2dlandground_5
+      rect:
+        serializedVersion: 2
+        x: 2390
+        y: 990
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93ab0c0b67fd1ae00800000000000000
+      internalID: 1054369488645962297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2dlandground_6
+      rect:
+        serializedVersion: 2
+        x: 2395
+        y: 992
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0600c00a2a60c7680800000000000000
+      internalID: -8756116279975477152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2dlandground_7
+      rect:
+        serializedVersion: 2
+        x: 2399
+        y: 962
+        width: 21
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a795e72178c602e40800000000000000
+      internalID: 5629618861599775098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2dlandground_8
+      rect:
+        serializedVersion: 2
+        x: 2384
+        y: 966
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 853f9cbff7c36f8d0800000000000000
+      internalID: -2812994396863466664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2dlandground_9
+      rect:
+        serializedVersion: 2
+        x: 2389
+        y: 983
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c5b3ba70a6333660800000000000000
+      internalID: 7364289878562158020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2dlandground_10
+      rect:
+        serializedVersion: 2
+        x: 2412
+        y: 985
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a19697ae2b98363d0800000000000000
+      internalID: -3214574307481392870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2dlandground_11
+      rect:
+        serializedVersion: 2
+        x: 2417
+        y: 979
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c7d02b0fd00ac8b0800000000000000
+      internalID: -5131287867470850112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2dlandground_12
+      rect:
+        serializedVersion: 2
+        x: 2393
+        y: 978
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f425867398a4b59a0800000000000000
+      internalID: -6243314505218502065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2dlandground_13
+      rect:
+        serializedVersion: 2
+        x: 2417
+        y: 970
+        width: 5
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4cf1a3789bcd60e0800000000000000
+      internalID: -2274938381116769205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2dlandground_14
+      rect:
+        serializedVersion: 2
+        x: 2409
+        y: 957
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00cf27c71098c6b80800000000000000
+      internalID: -8400188565476934656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2dlandground_15
+      rect:
+        serializedVersion: 2
+        x: 2421
+        y: 966
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a464f1c1b82957240800000000000000
+      internalID: 4788894904948311626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2dlandground_16
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 30
+        width: 3343
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 725702a9984aaaff0800000000000000
+      internalID: -24025937093823193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2dlandground_17
+      rect:
+        serializedVersion: 2
+        x: 3468
+        y: 540
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e59ef960ac68bc50800000000000000
+      internalID: 6681209483432990178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2dlandground_18
+      rect:
+        serializedVersion: 2
+        x: 3468
+        y: 533
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11981ae980814bfd0800000000000000
+      internalID: -2327208682143512303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2dlandground_19
+      rect:
+        serializedVersion: 2
+        x: 3467
+        y: 528
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b97c91e8f08a4ba60800000000000000
+      internalID: 7688955248590309275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
