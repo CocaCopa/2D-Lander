@@ -62,7 +62,6 @@ public class PlayerManager : MonoBehaviour
 
             handler.HandleAutoLanding();
         }
-
     }
 
     private void InitializeStats() {
@@ -74,6 +73,16 @@ public class PlayerManager : MonoBehaviour
         maxVelocity         = m_data.maxVeclocity;
         rigidBody.mass      = m_data.shipMass;
         rotationSpeed       = m_data.rotationSpeed;
+    }
+
+    public float GetPlayerSpeed() {
+
+        return rigidBody.velocity.magnitude;
+    }
+
+    public float GetPlayerAngle() {
+
+        return Vector2.Angle(transform.up, Vector2.up);
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
