@@ -12,6 +12,7 @@ public class PlayerManager : MonoBehaviour
     Rigidbody2D rigidBody;
 
     public bool EnableAutoPilot { get; set; }
+    public float SpaceshipFuel { get { return fuelCapacity; } set { remainingFuel += value; } }
 
     #region Spaceship Stats variables
     float forceAmount;
@@ -23,12 +24,16 @@ public class PlayerManager : MonoBehaviour
     bool b_move = false;
     #endregion
 
+    float remainingFuel;
+
     private void Awake() {
 
         rigidBody = GetComponent<Rigidbody2D>();
         handler = GetComponent<PlayerMovement>();
 
         InitializeStats();
+
+        remainingFuel = fuelCapacity;
     }
 
     private void FixedUpdate() {
@@ -42,7 +47,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Update() {
 
-        bool controlsEnabled = EnableAutoPilot == false && fuelCapacity > 0;
+        bool controlsEnabled = EnableAutoPilot == false && remainingFuel > 0;
 
         if (controlsEnabled) {
 
@@ -54,14 +59,17 @@ public class PlayerManager : MonoBehaviour
         }
 
         if (b_move) {
-            
-            fuelCapacity -= fuelConsumptionRate * Time.deltaTime;
+
+            remainingFuel -= fuelConsumptionRate * Time.deltaTime;
         }
+        //remainingFuel = Mathf.Clamp(remainingFuel, 0, fuelCapacity);
 
         if (EnableAutoPilot) {
 
             handler.HandleAutoLanding();
         }
+
+        Debug.Log(remainingFuel);
     }
 
     private void InitializeStats() {
@@ -73,6 +81,17 @@ public class PlayerManager : MonoBehaviour
         maxVelocity         = m_data.maxVeclocity;
         rigidBody.mass      = m_data.shipMass;
         rotationSpeed       = m_data.rotationSpeed;
+    }
+
+    private float FuelConsumption(bool b_move) {
+
+        if (b_move) {
+
+            remainingFuel -= fuelConsumptionRate * Time.deltaTime;
+        }
+        remainingFuel = Mathf.Clamp(remainingFuel, 0, fuelCapacity);
+
+        return remainingFuel;
     }
 
     public float GetPlayerSpeed() {

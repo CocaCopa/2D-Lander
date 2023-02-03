@@ -15,7 +15,7 @@ MonoBehaviour:
   healthPoints: 100
   maxSteerAngle: 90
   fuelCapacity: 100
-  fuelConsumptionRate: 0.0001
+  fuelConsumptionRate: 10
   shipMass: 20
   force: 10
   maxVeclocity: 12
