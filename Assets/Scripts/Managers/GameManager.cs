@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public Transform PlayerTransform { get; private set; }
+    public Transform GetPlayerTransform { get; private set; }
     public bool PlayerLanded { get; set; }
     public bool PlayerDied { get; set; }
 
@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
         instance = this;
 
-        PlayerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        GetPlayerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         PlayerLanded = false;
         PlayerDied = false;
     }
@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
         if (PlayerDied) {
 
-            PlayerTransform.gameObject.SetActive(false);
+            GetPlayerTransform.gameObject.SetActive(false);
             restartText.gameObject.SetActive(true);
         }
     }

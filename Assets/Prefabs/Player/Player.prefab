@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7477506989124873713}
   - component: {fileID: 7477506989124873718}
   - component: {fileID: 7876053297785466421}
+  - component: {fileID: 8837236810892033963}
   - component: {fileID: 7477506989124873719}
   - component: {fileID: 7477506989124873716}
   - component: {fileID: 7477506989124873712}
@@ -69,7 +70,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f964245aec855ed41bd3b46a64e56828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speedText: {fileID: 0}
+  angleText: {fileID: 0}
   landingTrigger: {fileID: 0}
+--- !u!114 &8837236810892033963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7477506989124873717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eda3bfb302160b47850df6e5a57b6b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invertAxis: 0
 --- !u!114 &7477506989124873719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,8 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_data: {fileID: 11400000, guid: 4878f85a9c7761c4f92d9453f8e68cca, type: 2}
-  landingTrigger: {fileID: 0}
-  invertAxis: 0
 --- !u!114 &7477506989124873716
 MonoBehaviour:
   m_ObjectHideFlags: 0

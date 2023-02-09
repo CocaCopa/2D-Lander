@@ -7,6 +7,8 @@ public class LandingTrigger : MonoBehaviour
     [SerializeField] float acceptableAngle;
     [SerializeField] float acceptableSpeed;
 
+    public bool LandingAccepted { get; private set; }
+
     private void OnTriggerEnter2D(Collider2D other) {
         
         if (other.transform.CompareTag("Player")) {
@@ -19,8 +21,8 @@ public class LandingTrigger : MonoBehaviour
 
             if (playerAngle < acceptableAngle && playerSpeed < acceptableSpeed) {
 
-                player.GetComponent<PlayerManager>().EnableAutoPilot = true;
                 GameManager.instance.PlayerLanded = true;
+                LandingAccepted = true;
             }
         }
     }

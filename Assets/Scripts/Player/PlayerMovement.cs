@@ -8,8 +8,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform landingTransform;
     [SerializeField] Vector3 landOffset = new Vector3(0,1);
     [SerializeField] float landSpeed = 0;
+    [SerializeField] float rotationSpeedMultiplier = 2.5f;
 
+    PlayerInput playerInput;
+    Rigidbody2D playerRb;
     float horizontalRotation;
+
+    private void Awake() {
+        
+        playerInput = GetComponent<PlayerInput>();
+        playerRb = GetComponent<Rigidbody2D>();
+    }
 
     /// <summary>
     /// Handles the rotation of the ship based on user input
@@ -18,13 +27,10 @@ public class PlayerMovement : MonoBehaviour
     /// <param name="rotationSpeed">Speed of the rotation</param>
     /// <param name="angle">Maximum angle the ship is allowed to turn</param>
     /// <returns>The ship's new rotation</returns>
-    public Quaternion HandleRotation(bool invertAxis, float rotationSpeed, float angle) {
+    public Quaternion HandleRotation(float rotationSpeed, float angle) {
 
-        float invert = invertAxis ? 1 : -1;
-        float horizontalInput = Input.GetAxisRaw("Horizontal") * invert;
+        float horizontalInput = playerInput.GetHorizontalInput();
         horizontalRotation += horizontalInput * rotationSpeed * Time.deltaTime;
-        if (horizontalRotation > 360)
-            horizontalRotation = 0;
         horizontalRotation = Mathf.Clamp(horizontalRotation, -angle, angle);
         Vector3 rotation = Vector3.zero;
         rotation.z = horizontalRotation;
@@ -36,22 +42,20 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     public void HandleAutoLanding() {
 
-        Rigidbody2D playerRb = GetComponent<Rigidbody2D>();
-
-        Vector2 resetVelocity = Vector2.zero;
-        playerRb.velocity = resetVelocity;
-        playerRb.isKinematic = true;
+        DisableRigidbody();
 
         transform.position = Vector2.Lerp(transform.position, landingTransform.position + landOffset, landSpeed * Time.deltaTime);
-        transform.up = Vector2.Lerp(transform.up, Vector2.up, landSpeed * 2.5f * Time.deltaTime);
+        transform.up = Vector2.Lerp(transform.up, Vector2.up, landSpeed * rotationSpeedMultiplier * Time.deltaTime);
     }
 
-    public bool GetMoveInput() {
+    private void DisableRigidbody() {
 
-        if (Input.GetButton("Jump")) {
+        if (playerRb.simulated == true) {
 
-            return true;
+            Vector2 resetVelocity = Vector2.zero;
+            playerRb.velocity = resetVelocity;
+            playerRb.simulated = false;
+            playerRb.isKinematic = true;
         }
-        return false;
     }
 }

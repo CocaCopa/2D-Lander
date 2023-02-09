@@ -6,12 +6,12 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     [SerializeField] SpaceshipData m_data;
-    [SerializeField] bool invertAxis = false;
 
     PlayerMovement handler;
+    PlayerInput playerInput;
     Rigidbody2D rigidBody;
+    LandingTrigger landingTrigger;
 
-    public bool EnableAutoPilot { get; set; }
     public float SpaceshipFuel {
         get {
             return fuelMaxCapacity; 
@@ -29,25 +29,29 @@ public class PlayerManager : MonoBehaviour
     float fuelConsumptionRate;
     float maxVelocity;
     float rotationSpeed;
-    bool b_move = false;
+    bool throttleInput = false;
     #endregion
 
     float remainingFuel;
+    bool controlsEnabled = true;
 
     private void Awake() {
 
-        rigidBody = GetComponent<Rigidbody2D>();
-        handler = GetComponent<PlayerMovement>();
-
-        InitializeStats();
+        InitialzeComponentVariables();
+        InitializeStatsVariables();
 
         remainingFuel = fuelMaxCapacity;
     }
 
     private void FixedUpdate() {
 
-        if (b_move) {
+        if (controlsEnabled && throttleInput) {
 
+            // TODO:
+            // Move the following code to PlayerMovement. Doesn't make sense to be implemented here.
+            // How to:
+            // Idea 1 -> Create a "PlayerVariables" script so that "PlayerMovement" will be able to see "forceAmount" and "maxVelocity"
+            // Idea 2 -> ???
             rigidBody.AddForce(transform.up * forceAmount, ForceMode2D.Impulse);
             rigidBody.velocity = Vector2.ClampMagnitude(rigidBody.velocity, maxVelocity);
         }
@@ -55,23 +59,15 @@ public class PlayerManager : MonoBehaviour
 
     private void Update() {
 
-        bool controlsEnabled = EnableAutoPilot == false && remainingFuel > 0;
+        bool enableAutoPilot = landingTrigger.LandingAccepted;
+        controlsEnabled = enableAutoPilot == false && remainingFuel > 0;
 
         if (controlsEnabled) {
 
-            b_move = handler.GetMoveInput();
-            transform.rotation = handler.HandleRotation(invertAxis, rotationSpeed, maxSteerAngle);
-        }
-        else {
-            b_move = false;
-        }
+            ManageMovement();
+        }        
 
-        if (b_move) {
-
-            remainingFuel -= fuelConsumptionRate * Time.deltaTime;
-        }
-
-        if (EnableAutoPilot) {
+        if (enableAutoPilot) {
 
             handler.HandleAutoLanding();
         }
@@ -79,26 +75,35 @@ public class PlayerManager : MonoBehaviour
         Debug.Log(remainingFuel);
     }
 
-    private void InitializeStats() {
+    private void InitializeStatsVariables() {
 
         forceAmount         = m_data.force;
         maxSteerAngle       = m_data.maxSteerAngle;
-        fuelMaxCapacity        = m_data.fuelCapacity;
+        fuelMaxCapacity     = m_data.fuelCapacity;
         fuelConsumptionRate = m_data.fuelConsumptionRate;
         maxVelocity         = m_data.maxVeclocity;
         rigidBody.mass      = m_data.shipMass;
         rotationSpeed       = m_data.rotationSpeed;
     }
 
-    private float FuelConsumption(bool b_move) {
+    private void InitialzeComponentVariables() {
 
-        if (b_move) {
+        GameObject landArea = GameObject.FindGameObjectWithTag("LandingTrigger");
+        landingTrigger = landArea.GetComponent<LandingTrigger>();
+        rigidBody = GetComponent<Rigidbody2D>();
+        handler = GetComponent<PlayerMovement>();
+        playerInput = GetComponent<PlayerInput>();
+    }
+
+    private void ManageMovement() {
+
+        transform.rotation = handler.HandleRotation(rotationSpeed, maxSteerAngle);
+        throttleInput = playerInput.GetThrottleInput();
+
+        if (throttleInput) {
 
             remainingFuel -= fuelConsumptionRate * Time.deltaTime;
         }
-        remainingFuel = Mathf.Clamp(remainingFuel, 0, fuelMaxCapacity);
-
-        return remainingFuel;
     }
 
     public float GetPlayerSpeed() {
