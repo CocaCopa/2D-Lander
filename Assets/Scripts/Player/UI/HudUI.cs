@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerUI : MonoBehaviour
+public class HudUI : MonoBehaviour
 {
     [SerializeField] Text speedText;
     [SerializeField] Text angleText;

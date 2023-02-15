@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 357804025}
   - component: {fileID: 357804024}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Image (Fuel Left)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -721,7 +721,7 @@ GameObject:
   - component: {fileID: 1287823017}
   - component: {fileID: 1287823016}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Image (Fuel Right)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1867,6 +1867,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 981672911742777322, guid: 632223cdf3fdc1b45b168f65d0108db7, type: 3}
+      propertyPath: fuelImageLeft
+      value: 
+      objectReference: {fileID: 357804024}
+    - target: {fileID: 981672911742777322, guid: 632223cdf3fdc1b45b168f65d0108db7, type: 3}
+      propertyPath: fuelImageRight
+      value: 
+      objectReference: {fileID: 1287823016}
     - target: {fileID: 7477506989124873712, guid: 632223cdf3fdc1b45b168f65d0108db7, type: 3}
       propertyPath: m_Size.x
       value: 0.91691303

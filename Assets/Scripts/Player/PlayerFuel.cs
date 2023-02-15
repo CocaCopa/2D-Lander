@@ -18,6 +18,14 @@ public class PlayerFuel : MonoBehaviour
         }
     }
 
+    public float GetMaxFuel {
+
+        get {
+
+            return fuelMaxCapacity;
+        }
+    }
+
     public float GetRemainingFuel {
         get {
             return remainingFuel;

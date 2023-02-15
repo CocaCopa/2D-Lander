@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7477506989124873713}
   - component: {fileID: 7477506989124873718}
   - component: {fileID: 7876053297785466421}
+  - component: {fileID: 981672911742777322}
   - component: {fileID: 8837236810892033963}
-  - component: {fileID: 8818451938614177368}
   - component: {fileID: 7477506989124873716}
+  - component: {fileID: 8818451938614177368}
   - component: {fileID: 1056940719638342768}
   - component: {fileID: 7477506989124873712}
   m_Layer: 0
@@ -74,6 +75,49 @@ MonoBehaviour:
   speedText: {fileID: 0}
   angleText: {fileID: 0}
   landingTrigger: {fileID: 0}
+--- !u!114 &981672911742777322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7477506989124873717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a74c8ea301cbf449b9bbb61e935e24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fuelImageLeft: {fileID: 0}
+  fuelImageRight: {fileID: 0}
+  fuelBarColor:
+    serializedVersion: 2
+    key0: {r: 0.8509804, g: 0, b: 0, a: 1}
+    key1: {r: 0.7264151, g: 0.630714, b: 0.044544343, a: 1}
+    key2: {r: 0.77254903, g: 0.6490976, b: 0.027450994, a: 0}
+    key3: {r: 0.019607844, g: 0.7921569, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 37779
+    ctime2: 43562
+    ctime3: 65535
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 4
+    m_NumAlphaKeys: 2
 --- !u!114 &8837236810892033963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,18 +131,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invertAxis: 0
---- !u!114 &8818451938614177368
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7477506989124873717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49422357b8bf8044bae68d8891c300c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7477506989124873716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +147,18 @@ MonoBehaviour:
   landOffset: {x: 0, y: 1, z: 0}
   landSpeed: 1.5
   rotationSpeedMultiplier: 2.5
+--- !u!114 &8818451938614177368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7477506989124873717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49422357b8bf8044bae68d8891c300c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1056940719638342768
 MonoBehaviour:
   m_ObjectHideFlags: 0

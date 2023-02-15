@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPoints: 100
   maxSteerAngle: 90
-  fuelCapacity: 20
+  fuelCapacity: 100
   fuelConsumptionRate: 10
   shipMass: 20
   force: 10
