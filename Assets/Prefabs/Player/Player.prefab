@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 7477506989124873718}
   - component: {fileID: 7876053297785466421}
   - component: {fileID: 8837236810892033963}
-  - component: {fileID: 7477506989124873719}
+  - component: {fileID: 8818451938614177368}
   - component: {fileID: 7477506989124873716}
+  - component: {fileID: 1056940719638342768}
   - component: {fileID: 7477506989124873712}
   m_Layer: 0
   m_Name: Player
@@ -86,7 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invertAxis: 0
---- !u!114 &7477506989124873719
+--- !u!114 &8818451938614177368
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,10 +96,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7477506989124873717}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37cd79b03c492964484149e77ba120a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 49422357b8bf8044bae68d8891c300c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_data: {fileID: 11400000, guid: 4878f85a9c7761c4f92d9453f8e68cca, type: 2}
 --- !u!114 &7477506989124873716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +114,19 @@ MonoBehaviour:
   landingTransform: {fileID: 0}
   landOffset: {x: 0, y: 1, z: 0}
   landSpeed: 1.5
+  rotationSpeedMultiplier: 2.5
+--- !u!114 &1056940719638342768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7477506989124873717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776e200a8ab9edc4eaaf0f30bf00178f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!70 &7477506989124873712
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

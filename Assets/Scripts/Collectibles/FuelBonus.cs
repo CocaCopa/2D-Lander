@@ -10,10 +10,10 @@ public class FuelBonus : MonoBehaviour
 
         if (collision.CompareTag("Player")) {
 
-            PlayerManager playerManager = collision.GetComponent<PlayerManager>();
-            float maxFuel = playerManager.SpaceshipFuel;
+            PlayerFuel playerFuel = collision.GetComponent<PlayerFuel>();
+            float maxFuel = playerFuel.AddBonusFuel;
             float refillAmount = refillAmountPercentage / 100 * maxFuel;
-            playerManager.SpaceshipFuel = refillAmount;
+            playerFuel.AddBonusFuel = refillAmount;
 
             gameObject.SetActive(false);
         }

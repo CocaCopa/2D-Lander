@@ -8,19 +8,22 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] Text speedText;
     [SerializeField] Text angleText;
     [SerializeField] LandingTrigger landingTrigger;
-    PlayerManager playerManager;
+    PlayerMovement playerMovement;
 
-    private void Awake() {
-        
-        playerManager = GetComponent<PlayerManager>();
+    private void Start() {
+
+        GameObject playerObject = GameManager.instance.GetPlayerTransform.gameObject;
+        playerMovement = playerObject.GetComponent<PlayerMovement>();
     }
 
     private void Update() {
 
         float acceptableAngle = landingTrigger.GetAcceptableAngle();
         float acceptableSpeed = landingTrigger.GetAcceptableSpeed();
-        float playerAngle = playerManager.GetPlayerAngle();
-        float playerSpeed = playerManager.GetPlayerSpeed();
+
+        
+        float playerAngle = playerMovement.GetCurrentAngle();
+        float playerSpeed = playerMovement.GetCurrentSpeed();
 
         string speedText = "OK";
         string angleText = "OK";
