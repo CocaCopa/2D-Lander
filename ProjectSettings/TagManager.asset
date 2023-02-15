@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - LandingTrigger
+  - Wall
   layers:
   - Default
   - TransparentFX
