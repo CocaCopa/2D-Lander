@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,12 +5,17 @@ public class HudUI : MonoBehaviour
 {
     [SerializeField] Text speedText;
     [SerializeField] Text angleText;
-    [SerializeField] LandingTrigger landingTrigger;
+    LandingTrigger landingTrigger;
     PlayerMovement playerMovement;
+
+    private void Awake() {
+        
+        landingTrigger = FindObjectOfType<LandingTrigger>();
+    }
 
     private void Start() {
 
-        GameObject playerObject = GameManager.instance.GetPlayerTransform.gameObject;
+        GameObject playerObject = PlayerManager.instance.GetPlayerTransform.gameObject;
         playerMovement = playerObject.GetComponent<PlayerMovement>();
     }
 
@@ -21,7 +24,6 @@ public class HudUI : MonoBehaviour
         float acceptableAngle = landingTrigger.GetAcceptableAngle();
         float acceptableSpeed = landingTrigger.GetAcceptableSpeed();
 
-        
         float playerAngle = playerMovement.GetCurrentAngle();
         float playerSpeed = playerMovement.GetCurrentSpeed();
 
@@ -37,8 +39,10 @@ public class HudUI : MonoBehaviour
             speedText = "WARNING";
         }
 
-        string asd = "Speed: " + speedText;
-        this.speedText.text = asd;
-        this.angleText.text = "Angle: " + angleText;
+        string speed = "Speed: " + speedText;
+        string angle = "Angle: " + angleText;
+
+        this.speedText.text = speed;
+        this.angleText.text = angle;
     }
 }

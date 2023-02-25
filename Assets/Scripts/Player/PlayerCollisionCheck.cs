@@ -1,14 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCollisionCheck : MonoBehaviour
 {
+    private bool hitWall = false;
+
     private void OnCollisionEnter2D(Collision2D collision) {
         
         if (collision.gameObject.CompareTag("Wall")) {
 
-            GameManager.instance.PlayerDied = true;
+            hitWall = true;
+        }
+    }
+
+    public bool PlayerDied {
+        get {
+            return hitWall;
         }
     }
 }

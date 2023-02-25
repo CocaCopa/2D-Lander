@@ -1,29 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("--- Cinematic Entrance ---")]
+    [SerializeField] Transform[] controlPoints = new Transform[4];
+    [SerializeField] AnimationCurve curve;
+    [SerializeField] float travelSpeed;
+
     [Header("--- End of Level Behaviour ---")]
     [SerializeField] Transform landingTransform;
     [SerializeField] Vector3 landOffset = new Vector3(0,1);
     [SerializeField] float landSpeed = 0;
     [SerializeField] float rotationSpeedMultiplier = 2.5f;
 
+    #region Spaceship Stats
     float forceAmount;
     float maxSteerAngle;
     float maxVelocity;
     float rotationSpeed;
+    #endregion
 
     Rigidbody2D playerRb;
     float horizontalRotation;
+    float bezierPoint;
 
     public void InitializeVariables() {
         
         playerRb = GetComponent<Rigidbody2D>();
 
-        PlayerController manager = PlayerController.instance;
+        PlayerManager manager = PlayerManager.instance;
         forceAmount     = manager.m_data.force;
         maxSteerAngle   = manager.m_data.maxSteerAngle;
         maxVelocity     = manager.m_data.maxVeclocity;
@@ -74,6 +83,14 @@ public class PlayerMovement : MonoBehaviour
         transform.up = Vector2.Lerp(current, target, lerpTime);
     }
 
+    /// <summary>
+    /// Moves the spaceship inside the scene smoothly.
+    /// </summary>
+    public void CinematicEntrance() {
+
+        transform.position = CalculateBezierPoints();
+    }
+
     public float GetCurrentSpeed() {
 
         return playerRb.velocity.magnitude;
@@ -93,5 +110,24 @@ public class PlayerMovement : MonoBehaviour
             playerRb.simulated = false;
             playerRb.isKinematic = true;
         }
+    }
+    float anim = 0;
+    private Vector3 CalculateBezierPoints() {
+
+
+        Vector3 bezierPosition = Mathf.Pow(1 - bezierPoint, 3) * controlPoints[0].position +
+                              3 * Mathf.Pow(1 - bezierPoint, 2) * bezierPoint * controlPoints[1].position +
+                              3 * (1 - bezierPoint) * Mathf.Pow(bezierPoint, 2) * controlPoints[2].position +
+                              Mathf.Pow(bezierPoint, 3) * controlPoints[3].position;
+
+        if (Vector3.Distance(bezierPosition, controlPoints[3].position) > 0.1f) {
+
+            bezierPoint += travelSpeed * Time.deltaTime;
+            anim += travelSpeed * Time.deltaTime;
+        }
+
+        Vector3 targetPosition = Vector3.Lerp(controlPoints[0].position, bezierPosition, curve.Evaluate(anim));
+
+        return targetPosition;
     }
 }

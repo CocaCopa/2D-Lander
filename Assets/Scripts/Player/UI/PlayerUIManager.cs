@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerUIManager : MonoBehaviour
@@ -8,7 +6,7 @@ public class PlayerUIManager : MonoBehaviour
 
     private void Start() {
 
-        playerObject = GameManager.instance.GetPlayerTransform.gameObject;
+        playerObject = PlayerManager.instance.GetPlayerTransform.gameObject;
     }
 
     private void Update() {

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,7 +5,6 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public Transform GetPlayerTransform { get; private set; }
     public bool PlayerLanded { get; set; }
     public bool PlayerDied { get; set; }
 
@@ -16,8 +13,6 @@ public class GameManager : MonoBehaviour
     private void Awake() {
 
         instance = this;
-
-        GetPlayerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         PlayerLanded = false;
         PlayerDied = false;
     }
@@ -31,7 +26,6 @@ public class GameManager : MonoBehaviour
 
         if (PlayerDied) {
 
-            GetPlayerTransform.gameObject.SetActive(false);
             restartText.gameObject.SetActive(true);
         }
     }

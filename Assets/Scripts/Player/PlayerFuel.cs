@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerFuel : MonoBehaviour
@@ -19,7 +17,6 @@ public class PlayerFuel : MonoBehaviour
     }
 
     public float GetMaxFuel {
-
         get {
 
             return fuelMaxCapacity;
@@ -34,7 +31,7 @@ public class PlayerFuel : MonoBehaviour
 
     public void InitializeVariables() {
 
-        SpaceshipData m_data = PlayerController.instance.m_data;
+        SpaceshipData m_data = PlayerManager.instance.m_data;
         fuelMaxCapacity = m_data.fuelCapacity;
         fuelConsumptionRate = m_data.fuelConsumptionRate;
         remainingFuel = fuelMaxCapacity;

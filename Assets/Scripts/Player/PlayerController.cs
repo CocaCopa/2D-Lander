@@ -1,17 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
 
-    [SerializeField] private GameObject playerObject;
-    // TODO: Once more spaceships will be added, a "List<>()" containing all of the different ship stats will be added as well.
-    // "Playermanager" should then check which spaceship the player chose, in order to initialize "m_data" with the correct value.
-    // That said, all of the scripts reading the "m_data" variable, will get the correct information.
-    public SpaceshipData m_data;
-
+    GameObject playerObject;
     PlayerMovement playerMovement;
     PlayerInput playerInput;
     PlayerFuel playerFuel;
@@ -23,8 +16,7 @@ public class PlayerController : MonoBehaviour
     private void Awake() {
 
         instance = this;
-
-        InitialzeComponentVariables();
+        Initialze();
         playerFuel.InitializeVariables();
         playerMovement.InitializeVariables();
     }
@@ -39,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update() {
 
-        bool enableAutoPilot = landingTrigger.LandingAccepted;
+        /*bool enableAutoPilot = landingTrigger.LandingAccepted;
         controlsEnabled = enableAutoPilot == false && playerFuel.GetRemainingFuel > 0;
 
         if (controlsEnabled) {
@@ -50,14 +42,15 @@ public class PlayerController : MonoBehaviour
         if (enableAutoPilot) {
 
             playerMovement.HandleAutoLanding();
-        }
+        }*/
+
+        playerMovement.CinematicEntrance();
     }
 
-    private void InitialzeComponentVariables() {
+    private void Initialze() {
 
-        GameObject landArea = GameObject.FindGameObjectWithTag("LandingTrigger");
-
-        landingTrigger  = landArea.GetComponent<LandingTrigger>();
+        playerObject = PlayerManager.instance.GetPlayerTransform.gameObject;
+        landingTrigger  = FindObjectOfType<LandingTrigger>();
         playerMovement  = playerObject.GetComponent<PlayerMovement>();
         playerInput     = playerObject.GetComponent<PlayerInput>();
         playerFuel      = playerObject.GetComponent<PlayerFuel>();
