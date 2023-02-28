@@ -14,7 +14,7 @@ public class PlayerCollisionCheck : MonoBehaviour
 
     public bool PlayerDied {
         get {
-            return hitWall;
+            return false;
         }
     }
 }

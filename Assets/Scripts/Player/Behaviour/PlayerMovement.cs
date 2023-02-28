@@ -93,10 +93,6 @@ public class PlayerMovement : MonoBehaviour
     /// <returns>True, once the animation is completed</returns>
     public bool CinematicEntrance() {
 
-        float distanceStartEnd = Vector3.Distance(controlPoints[0].position, controlPoints[3].position);
-        float distanceShipEnd = Vector3.Distance(transform.position, controlPoints[3].position);
-        float distanceQuarter = distanceStartEnd / 4;
-
         transform.position = CalculateBezierPoints(out bool animationCompleted);
         return animationCompleted;
     }

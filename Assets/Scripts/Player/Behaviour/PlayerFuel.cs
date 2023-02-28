@@ -6,7 +6,10 @@ public class PlayerFuel : MonoBehaviour
     float fuelConsumptionRate;
     float remainingFuel;
 
-    public float AddBonusFuel {
+    /// <summary>
+    /// Get: Fuel max capacity | Set: Current fuel
+    /// </summary>
+    public float AddFuel {
         get {
             return fuelMaxCapacity;
         }
