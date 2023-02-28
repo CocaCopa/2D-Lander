@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update() {
 
-        /*bool enableAutoPilot = landingTrigger.LandingAccepted;
+        bool enableAutoPilot = landingTrigger.LandingAccepted;
         controlsEnabled = enableAutoPilot == false && playerFuel.GetRemainingFuel > 0;
 
         if (controlsEnabled) {
@@ -42,9 +42,7 @@ public class PlayerController : MonoBehaviour
         if (enableAutoPilot) {
 
             playerMovement.HandleAutoLanding();
-        }*/
-
-        playerMovement.CinematicEntrance();
+        }
     }
 
     private void Initialze() {

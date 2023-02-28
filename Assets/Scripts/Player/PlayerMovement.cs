@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D playerRb;
     float horizontalRotation;
     float bezierPoint;
+    float anim = 0;
 
     public void InitializeVariables() {
         
@@ -57,6 +58,9 @@ public class PlayerMovement : MonoBehaviour
         return Quaternion.Euler(rotation);
     }
 
+    /// <summary>
+    /// Moves the spaceship by force
+    /// </summary>
     public void ThrottleMovement() {
 
         playerRb.AddForce(transform.up * forceAmount, ForceMode2D.Impulse);
@@ -86,9 +90,15 @@ public class PlayerMovement : MonoBehaviour
     /// <summary>
     /// Moves the spaceship inside the scene smoothly.
     /// </summary>
-    public void CinematicEntrance() {
+    /// <returns>True, once the animation is completed</returns>
+    public bool CinematicEntrance() {
 
-        transform.position = CalculateBezierPoints();
+        float distanceStartEnd = Vector3.Distance(controlPoints[0].position, controlPoints[3].position);
+        float distanceShipEnd = Vector3.Distance(transform.position, controlPoints[3].position);
+        float distanceQuarter = distanceStartEnd / 4;
+
+        transform.position = CalculateBezierPoints(out bool animationCompleted);
+        return animationCompleted;
     }
 
     public float GetCurrentSpeed() {
@@ -111,9 +121,8 @@ public class PlayerMovement : MonoBehaviour
             playerRb.isKinematic = true;
         }
     }
-    float anim = 0;
-    private Vector3 CalculateBezierPoints() {
-
+    
+    private Vector3 CalculateBezierPoints(out bool onPosition) {
 
         Vector3 bezierPosition = Mathf.Pow(1 - bezierPoint, 3) * controlPoints[0].position +
                               3 * Mathf.Pow(1 - bezierPoint, 2) * bezierPoint * controlPoints[1].position +
@@ -124,6 +133,11 @@ public class PlayerMovement : MonoBehaviour
 
             bezierPoint += travelSpeed * Time.deltaTime;
             anim += travelSpeed * Time.deltaTime;
+            onPosition = false;
+        }
+        else {
+
+            onPosition = true;
         }
 
         Vector3 targetPosition = Vector3.Lerp(controlPoints[0].position, bezierPosition, curve.Evaluate(anim));
