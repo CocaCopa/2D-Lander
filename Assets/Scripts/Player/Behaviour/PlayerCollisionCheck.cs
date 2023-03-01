@@ -4,6 +4,11 @@ public class PlayerCollisionCheck : MonoBehaviour
 {
     private bool hitWall = false;
 
+    private void Update() {
+
+        Debug.Log("Message: 'PlayerCollisionCheck' script is not being used");
+    }
+
     private void OnCollisionEnter2D(Collision2D collision) {
         
         if (collision.gameObject.CompareTag("Wall")) {
@@ -14,7 +19,8 @@ public class PlayerCollisionCheck : MonoBehaviour
 
     public bool PlayerDied {
         get {
-            return false;
+            hitWall = false;
+            return hitWall;
         }
     }
 }
