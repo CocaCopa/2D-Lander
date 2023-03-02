@@ -8,22 +8,20 @@ public class PlayerController : MonoBehaviour
     PlayerMovement playerMovement;
     PlayerInput playerInput;
     PlayerFuel playerFuel;
-    LandingTrigger landingTrigger;
 
     bool throttleInput = false;
-    bool controlsEnabled = true;
 
     private void Awake() {
 
         instance = this;
-        Initialze();
+        Initialize();
         playerFuel.InitializeVariables();
         playerMovement.InitializeVariables();
     }
 
     private void FixedUpdate() {
 
-        if (controlsEnabled && throttleInput) {
+        if (throttleInput) {
 
             playerMovement.ThrottleMovement();
         }
@@ -31,24 +29,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update() {
 
-        bool enableAutoPilot = landingTrigger.LandingAccepted;
-        controlsEnabled = enableAutoPilot == false && playerFuel.GetRemainingFuel > 0;
-
-        if (controlsEnabled) {
-
-            this.ManageMovement();
-        }
-
-        if (enableAutoPilot) {
-
-            playerMovement.HandleAutoLanding();
-        }
+        ManageMovement();
     }
 
-    private void Initialze() {
+    private void Initialize() {
 
         playerObject = PlayerManager.instance.GetPlayerTransform.gameObject;
-        landingTrigger  = FindObjectOfType<LandingTrigger>();
         playerMovement  = playerObject.GetComponent<PlayerMovement>();
         playerInput     = playerObject.GetComponent<PlayerInput>();
         playerFuel      = playerObject.GetComponent<PlayerFuel>();

@@ -9,8 +9,6 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    PlayerState.Player_State Current_State;
-
     [SerializeField] GameObject playerObject;
     [SerializeField] Transform playerSpawnTransform;
     // TODO: Once more spaceships will be added, a "List<>()" containing all of the different ship stats will be added as well.
@@ -19,47 +17,58 @@ public class PlayerManager : MonoBehaviour
     public SpaceshipData m_data;
 
     Rigidbody2D playerRB;
+    LandingTrigger landingTrigger;
     PlayerCollisionCheck playerCollision;
     PlayerController playerController;
     PlayerFuel playerFuel;
     PlayerMovement playerMovement;
     PlayerInput input;
 
+    bool playerOutOfFuel = false;
+
     private void Awake() {
 
         instance = this;
-        Current_State = PlayerState.Player_State.CinematicEntrance;
+        PlayerState.SetCurrentState(PlayerState.Player_State.CinematicEntrance);
         Initialize();
     }
 
     private void Update() {
 
         CheckIfPlayerIsAlive();
-
-        switch (Current_State) {
-
-            case PlayerState.Player_State.CinematicEntrance:
-            playerRB.simulated = false;
-            playerController.enabled = false;
-            GameplayStateTransition();
-            break;
-
-            case PlayerState.Player_State.Gameplay:
-            playerRB.simulated = true;
-            playerController.enabled = true;
-            break;
-            
-            case PlayerState.Player_State.Dead:
-            playerObject.SetActive(false);
-            break;
-        }
+        AutoPilotEnabled();
+        ManagePlayerStates();
     }
 
     private void CheckIfPlayerIsAlive() {
 
-        if (playerCollision.PlayerDied) {
+        playerOutOfFuel = playerFuel.GetRemainingFuel <= 0;
 
-            Current_State = PlayerState.Player_State.Dead;
+        if (playerCollision.PlayerDied || playerOutOfFuel) {
+
+            PlayerState.SetCurrentState(PlayerState.Player_State.Dead);
+        }
+    }
+
+    private void ManagePlayerStates() {
+
+        switch (PlayerState.GetCurrentState()) {
+
+            case PlayerState.Player_State.CinematicEntrance:
+            CinematicState();
+            break;
+
+            case PlayerState.Player_State.Gameplay:
+            GameplayState();
+            break;
+
+            case PlayerState.Player_State.AutoPilot:
+            AutoPilotState();
+            break;
+
+            case PlayerState.Player_State.Dead:
+            DeadState();
+            break;
         }
     }
 
@@ -77,14 +86,58 @@ public class PlayerManager : MonoBehaviour
 
             if (input.GetThrottleInput()) {
 
-                Current_State = PlayerState.Player_State.Gameplay;
+                PlayerState.SetCurrentState(PlayerState.Player_State.Gameplay);
             }
+        }
+    }
+
+    private void CinematicState() {
+
+        playerRB.simulated = false;
+        playerController.enabled = false;
+        GameplayStateTransition();
+    }
+
+    private void GameplayState() {
+
+        playerRB.simulated = true;
+        playerController.enabled = true;
+    }
+
+    private void AutoPilotState() {
+
+        playerRB.simulated = false;
+        playerController.enabled = false;
+        playerMovement.HandleAutoLanding();
+    }
+
+    private void DeadState() {
+
+        if (playerOutOfFuel) {
+
+            playerRB.simulated = true;
+            playerController.enabled = false;
+        }
+        else {
+
+            playerObject.SetActive(false);
+        }
+    }
+
+    private void AutoPilotEnabled() {
+
+        bool enableAutoPilot = landingTrigger.LandingAccepted;
+
+        if (enableAutoPilot) {
+
+            PlayerState.SetCurrentState(PlayerState.Player_State.AutoPilot);
         }
     }
 
     private void Initialize() {
 
         playerRB            = playerObject.GetComponent<Rigidbody2D>();
+        landingTrigger      = FindObjectOfType<LandingTrigger>();
         playerCollision     = playerObject.GetComponent<PlayerCollisionCheck>();
         playerFuel          = playerObject.GetComponent<PlayerFuel>();
         playerMovement      = playerObject.GetComponent<PlayerMovement>();

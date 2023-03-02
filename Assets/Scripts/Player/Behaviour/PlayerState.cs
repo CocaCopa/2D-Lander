@@ -7,6 +7,19 @@ public class PlayerState
 
         CinematicEntrance,
         Gameplay,
+        AutoPilot,
         Dead
+    }
+
+    private static Player_State Current_State;
+
+    public static void SetCurrentState(Player_State state) {
+
+        Current_State = state;
+    }
+
+    public static Player_State GetCurrentState() {
+
+        return Current_State;
     }
 }

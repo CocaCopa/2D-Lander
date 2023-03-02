@@ -2,22 +2,25 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
-    public static GameManager instance;
-    public bool PlayerLanded { get; set; }
+    public static LevelManager instance;
+    public bool LevelCompleted { get; private set; }
     public bool PlayerDied { get; set; }
 
     [SerializeField] Text restartText;
+    [SerializeField] LandingTrigger landingTrigger;
 
     private void Awake() {
 
         instance = this;
-        PlayerLanded = false;
+        LevelCompleted = false;
         PlayerDied = false;
     }
 
     private void Update() {
+
+        LevelCompleted = landingTrigger.LandingAccepted;
 
         if (Input.GetKeyDown(KeyCode.R)) {
 

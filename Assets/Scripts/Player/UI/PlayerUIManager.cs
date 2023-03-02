@@ -9,10 +9,4 @@ public class PlayerUIManager : MonoBehaviour
         playerObject = PlayerManager.instance.GetPlayerTransform.gameObject;
     }
 
-    private void Update() {
-
-        bool playerLanded = GameManager.instance.PlayerLanded;
-        
-        // Hide fuel images if player landed or died.
-    }
 }

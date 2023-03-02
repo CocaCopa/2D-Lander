@@ -16,10 +16,10 @@ public class LandingTrigger : MonoBehaviour
 
             float playerSpeed = playerRb.velocity.magnitude;
             float playerAngle = Vector3.Angle(player.transform.up, Vector2.up);
+            bool playerCanLand = playerAngle < acceptableAngle && playerSpeed < acceptableSpeed;
 
-            if (playerAngle < acceptableAngle && playerSpeed < acceptableSpeed) {
+            if (playerCanLand) {
 
-                GameManager.instance.PlayerLanded = true;
                 LandingAccepted = true;
             }
         }

@@ -12,9 +12,12 @@ public class BounceSpaceship : MonoBehaviour
         if (collision.gameObject.CompareTag("Player")) {
             
             GameObject playerObject = collision.gameObject;
+            PlayerFuel playerFuel = playerObject.GetComponent<PlayerFuel>();
 
-            PushPlayerAway(playerObject, collision);
-            ConsumeFuelFromPlayer(playerObject);
+            if (playerFuel.GetRemainingFuel > 0) {
+                PushPlayerAway(playerObject, collision);
+                ConsumeFuelFromPlayer(playerFuel);
+            }
         }
     }
 
@@ -30,9 +33,7 @@ public class BounceSpaceship : MonoBehaviour
         }
     }
 
-    private void ConsumeFuelFromPlayer(GameObject playerObject) {
-
-        PlayerFuel playerFuel = playerObject.GetComponent<PlayerFuel>();
+    private void ConsumeFuelFromPlayer(PlayerFuel playerFuel) {
 
         float maxFuel = playerFuel.AddFuel;
         float consumeAmount = -fuelConsumePercentage / 100 * maxFuel;
