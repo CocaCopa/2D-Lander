@@ -23,7 +23,7 @@ public class PlayerAutoPilot : MonoBehaviour
 
     Rigidbody2D playerRb;
     float bezierPoint;
-    float anim = 0;
+    float animationPoints = 0;
 
     #region Public:
     /// <summary>
@@ -53,7 +53,7 @@ public class PlayerAutoPilot : MonoBehaviour
     public bool CinematicEntrance() {
 
         if (curve == null) {
-            curve = AnimationCurve.Linear(1, 1, 1, 1);
+            curve = AnimationCurve.Linear(1.0f, 1.0f, 1.0f, 1.0f);
         }
 
         transform.SetPositionAndRotation(
@@ -88,18 +88,20 @@ public class PlayerAutoPilot : MonoBehaviour
                               3 * (1 - bezierPoint) * Mathf.Pow(bezierPoint, 2) * controlPoints[2].position +
                               Mathf.Pow(bezierPoint, 3) * controlPoints[3].position;
 
-        if (Vector3.Distance(bezierPosition, controlPoints[3].position) > 0.1f) {
+        bool onBezierCurve = Vector3.Distance(bezierPosition, controlPoints[3].position) > 0.1f;
+
+        if (onBezierCurve) {
 
             bezierPoint += travelSpeed * Time.deltaTime;
-            anim += travelSpeed * Time.deltaTime;
+            animationPoints += travelSpeed * Time.deltaTime;
             onPosition = false;
         }
-        else {
+        else { // Spaceship sits on the last bezier point
 
             onPosition = true;
         }
 
-        Vector3 targetPosition = Vector3.Lerp(controlPoints[0].position, bezierPosition, curve.Evaluate(anim));
+        Vector3 targetPosition = Vector3.Lerp(controlPoints[0].position, bezierPosition, curve.Evaluate(animationPoints));
 
         return targetPosition;
     }
@@ -136,10 +138,10 @@ public class PlayerAutoPilot : MonoBehaviour
             angle = spaceshipAngle - (spaceshipAngle * shipToPoint3 / point2ToPoint3);
         }
         else if (distanceSector4 > 0) {
-
+            
             angle = spaceshipAngle * shipToEnd / point3ToEnd;
         }
-
+        
         return Quaternion.Euler(0, 0, angle);
     }
     #endregion
