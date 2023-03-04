@@ -15,11 +15,30 @@ public class PlayerController : MonoBehaviour
 
         instance = this;
         Initialize();
+    }
+
+    private void FixedUpdate() {
+
+        MoveSpaceship();
+    }
+
+    private void Update() {
+
+        ManageMovementInputs();
+    }
+
+    private void Initialize() {
+
+        playerObject    = PlayerManager.instance.GetPlayerTransform.gameObject;
+        playerMovement  = playerObject.GetComponent<PlayerMovement>();
+        playerInput     = playerObject.GetComponent<PlayerInput>();
+        playerFuel      = playerObject.GetComponent<PlayerFuel>();
+
         playerFuel.InitializeVariables();
         playerMovement.InitializeVariables();
     }
 
-    private void FixedUpdate() {
+    private void MoveSpaceship() {
 
         if (throttleInput) {
 
@@ -27,20 +46,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Update() {
-
-        ManageMovement();
-    }
-
-    private void Initialize() {
-
-        playerObject = PlayerManager.instance.GetPlayerTransform.gameObject;
-        playerMovement  = playerObject.GetComponent<PlayerMovement>();
-        playerInput     = playerObject.GetComponent<PlayerInput>();
-        playerFuel      = playerObject.GetComponent<PlayerFuel>();
-    }
-
-    private void ManageMovement() {
+    private void ManageMovementInputs() {
 
         playerMovement.HandleRotation(playerInput.GetHorizontalInput());
         throttleInput = playerInput.GetThrottleInput();

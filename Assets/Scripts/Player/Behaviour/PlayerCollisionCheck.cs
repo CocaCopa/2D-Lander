@@ -4,7 +4,7 @@ public class PlayerCollisionCheck : MonoBehaviour
 {
     private bool hitWall = false;
 
-    private void Update() {
+    private void Start() {
 
         Debug.Log("Message: 'PlayerCollisionCheck' script is not being used");
     }

@@ -10,7 +10,6 @@ public class PlayerManager : MonoBehaviour
     }
 
     [SerializeField] GameObject playerObject;
-    [SerializeField] Transform playerSpawnTransform;
     // TODO: Once more spaceships will be added, a "List<>()" containing all of the different ship stats will be added as well.
     // "Playermanager" should then check which spaceship the player chose, in order to initialize "m_data" with the correct value.
     // That said, all of the scripts reading the "m_data" variable, will get the correct information.
@@ -21,7 +20,7 @@ public class PlayerManager : MonoBehaviour
     PlayerCollisionCheck playerCollision;
     PlayerController playerController;
     PlayerFuel playerFuel;
-    PlayerMovement playerMovement;
+    PlayerAutoPilot playerAutoPilot;
     PlayerInput input;
 
     bool playerOutOfFuel = false;
@@ -74,7 +73,7 @@ public class PlayerManager : MonoBehaviour
 
     private bool CinematicEntranceCompleted() {
 
-        if (playerMovement.CinematicEntrance()) {
+        if (playerAutoPilot.CinematicEntrance()) {
             return true;
         }
         return false;
@@ -108,7 +107,7 @@ public class PlayerManager : MonoBehaviour
 
         playerRB.simulated = false;
         playerController.enabled = false;
-        playerMovement.HandleAutoLanding();
+        playerAutoPilot.HandleAutoLanding();
     }
 
     private void DeadState() {
@@ -140,7 +139,7 @@ public class PlayerManager : MonoBehaviour
         landingTrigger      = FindObjectOfType<LandingTrigger>();
         playerCollision     = playerObject.GetComponent<PlayerCollisionCheck>();
         playerFuel          = playerObject.GetComponent<PlayerFuel>();
-        playerMovement      = playerObject.GetComponent<PlayerMovement>();
+        playerAutoPilot  = playerObject.GetComponent<PlayerAutoPilot>();
         input               = playerObject.GetComponent<PlayerInput>();
         playerController    = FindObjectOfType<PlayerController>();
     }
