@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BounceSpaceship : MonoBehaviour
 {
+    [Tooltip("If set to true, fuel amount drained will be based on shpaceship's MAX fuel, else it will be drained based on spaceship's REMAINING fuel")]
+    [SerializeField] bool maxFuelDrain = false;
     [SerializeField] float forceAmount;
     [SerializeField] float fuelConsumePercentage;
 
@@ -35,8 +37,8 @@ public class BounceSpaceship : MonoBehaviour
 
     private void ConsumeFuelFromPlayer(PlayerFuel playerFuel) {
 
-        float maxFuel = playerFuel.AddFuel;
-        float consumeAmount = -fuelConsumePercentage / 100 * maxFuel;
+        float shipFuel = maxFuelDrain == true ? playerFuel.GetMaxFuel : playerFuel.GetRemainingFuel;
+        float consumeAmount = -fuelConsumePercentage / 100 * shipFuel;
         playerFuel.AddFuel = consumeAmount;
     }
 }

@@ -1155,6 +1155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3a060408481c649b7099f976a82090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFuelDrain: 0
   forceAmount: 250
   fuelConsumePercentage: 30
 --- !u!4 &1294209794 stripped
@@ -1837,6 +1838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3a060408481c649b7099f976a82090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFuelDrain: 1
   forceAmount: 250
   fuelConsumePercentage: 30
 --- !u!4 &1824138694 stripped
@@ -2272,6 +2274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3a060408481c649b7099f976a82090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxFuelDrain: 1
   forceAmount: 300
   fuelConsumePercentage: 50
 --- !u!1001 &2067632720

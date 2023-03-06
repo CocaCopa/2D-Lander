@@ -9,7 +9,7 @@ public class FuelBonus : MonoBehaviour
         if (collision.CompareTag("Player")) {
 
             PlayerFuel playerFuel = collision.GetComponent<PlayerFuel>();
-            float maxFuel = playerFuel.AddFuel;
+            float maxFuel = playerFuel.GetMaxFuel;
             float refillAmount = refillAmountPercentage / 100 * maxFuel;
             playerFuel.AddFuel = refillAmount;
 

@@ -32,18 +32,8 @@ public class PlayerAutoPilot : MonoBehaviour
     public void HandleAutoLanding() {
 
         DisableRigidbody();
-
-        Vector3 current = transform.position;
-        Vector3 target = landingTransform.position + landOffset;
-        float lerpTime = landSpeed * Time.deltaTime;
-        // Set Position
-        transform.position = Vector2.Lerp(current, target, lerpTime);
-
-        current = transform.up;
-        target = Vector3.up;
-        lerpTime = landSpeed * rotationSpeedMultiplier * Time.deltaTime;
-        // Set Angle
-        transform.up = Vector2.Lerp(current, target, lerpTime);
+        transform.position = AutoLandPosition();
+        transform.up = AutoLandAngle();
     }
 
     /// <summary>
@@ -52,24 +42,21 @@ public class PlayerAutoPilot : MonoBehaviour
     /// <returns>True, once the animation is completed</returns>
     public bool CinematicEntrance() {
 
-        if (curve == null) {
-            curve = AnimationCurve.Linear(1.0f, 1.0f, 1.0f, 1.0f);
-        }
+        InitializeAnimationCurve();
 
         transform.SetPositionAndRotation(
             CalculateBezierPoints(out bool animationCompleted),
-            CalculateSpaceShipAngle()
+            CalculateSpaceshipAngle()
         );
 
         return animationCompleted;
     }
     #endregion
 
+    #region Private:
     private void DisableRigidbody() {
 
-        if (playerRb == null) {
-            playerRb = GetComponent<Rigidbody2D>();
-        }
+        InitializeRigidbody();
 
         if (playerRb.simulated == true) {
 
@@ -80,7 +67,24 @@ public class PlayerAutoPilot : MonoBehaviour
         }
     }
 
-    #region Private:
+    private Vector2 AutoLandPosition() {
+
+        Vector3 current = transform.position;
+        Vector3 target = landingTransform.position + landOffset;
+        float lerpTime = landSpeed * Time.deltaTime;
+
+        return Vector2.Lerp(current, target, lerpTime);
+    }
+
+    private Vector2 AutoLandAngle() {
+
+        Vector3 current = transform.up;
+        Vector3 target = Vector3.up;
+        float lerpTime = landSpeed * rotationSpeedMultiplier * Time.deltaTime;
+
+        return Vector2.Lerp(current, target, lerpTime);
+    }
+
     private Vector3 CalculateBezierPoints(out bool onPosition) {
 
         Vector3 bezierPosition = Mathf.Pow(1 - bezierPoint, 3) * controlPoints[0].position +
@@ -106,7 +110,7 @@ public class PlayerAutoPilot : MonoBehaviour
         return targetPosition;
     }
 
-    private Quaternion CalculateSpaceShipAngle() {
+    private Quaternion CalculateSpaceshipAngle() {
 
         float shipToPoint1 = Vector3.Distance(transform.position, angleChangePoints[0].position);
         float shipToPoint2 = Vector3.Distance(transform.position, angleChangePoints[1].position);
@@ -143,6 +147,20 @@ public class PlayerAutoPilot : MonoBehaviour
         }
         
         return Quaternion.Euler(0, 0, angle);
+    }
+
+    private void InitializeRigidbody() {
+
+        if (playerRb == null) {
+            playerRb = GetComponent<Rigidbody2D>();
+        }
+    }
+
+    private void InitializeAnimationCurve() {
+
+        if (curve == null) {
+            curve = AnimationCurve.Linear(1.0f, 1.0f, 1.0f, 1.0f);
+        }
     }
     #endregion
 }

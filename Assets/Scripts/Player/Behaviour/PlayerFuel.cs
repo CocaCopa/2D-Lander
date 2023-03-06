@@ -7,12 +7,9 @@ public class PlayerFuel : MonoBehaviour
     float remainingFuel;
 
     /// <summary>
-    /// Get: Fuel max capacity | Set: Current fuel
+    /// Set: Current fuel
     /// </summary>
     public float AddFuel {
-        get {
-            return fuelMaxCapacity;
-        }
         set {
             remainingFuel += value;
             remainingFuel = Mathf.Clamp(remainingFuel, 0, fuelMaxCapacity);
@@ -21,7 +18,6 @@ public class PlayerFuel : MonoBehaviour
 
     public float GetMaxFuel {
         get {
-
             return fuelMaxCapacity;
         }
     }
