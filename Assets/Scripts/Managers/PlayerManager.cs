@@ -139,8 +139,8 @@ public class PlayerManager : MonoBehaviour
         landingTrigger      = FindObjectOfType<LandingTrigger>();
         playerCollision     = playerObject.GetComponent<PlayerCollisionCheck>();
         playerFuel          = playerObject.GetComponent<PlayerFuel>();
-        playerAutoPilot  = playerObject.GetComponent<PlayerAutoPilot>();
-        input               = playerObject.GetComponent<PlayerInput>();
+        playerAutoPilot     = playerObject.GetComponent<PlayerAutoPilot>();
+        input               = FindObjectOfType<PlayerInput>();
         playerController    = FindObjectOfType<PlayerController>();
     }
 }

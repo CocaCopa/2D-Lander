@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
         playerObject    = PlayerManager.instance.GetPlayerTransform.gameObject;
         playerMovement  = playerObject.GetComponent<PlayerMovement>();
-        playerInput     = playerObject.GetComponent<PlayerInput>();
+        playerInput     = GetComponent<PlayerInput>();
         playerFuel      = playerObject.GetComponent<PlayerFuel>();
 
         playerFuel.InitializeVariables();

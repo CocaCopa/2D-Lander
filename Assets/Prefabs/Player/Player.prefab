@@ -264,7 +264,6 @@ GameObject:
   - component: {fileID: 7789236877291835856}
   - component: {fileID: 7876053297785466421}
   - component: {fileID: 981672911742777322}
-  - component: {fileID: 8837236810892033963}
   - component: {fileID: 6739813338430400152}
   - component: {fileID: 7477506989124873716}
   - component: {fileID: 8818451938614177368}
@@ -407,19 +406,6 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 4
     m_NumAlphaKeys: 2
---- !u!114 &8837236810892033963
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7477506989124873717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8eda3bfb302160b47850df6e5a57b6b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  invertRotationAxis: 0
 --- !u!114 &6739813338430400152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,30 +427,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   travelSpeed: 0.2
   spaceshipAngle: 20
   landingTransform: {fileID: 0}

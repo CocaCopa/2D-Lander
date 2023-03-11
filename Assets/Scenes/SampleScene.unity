@@ -1919,6 +1919,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1947999451}
   - component: {fileID: 1947999452}
+  - component: {fileID: 1947999453}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -1952,6 +1953,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37cd79b03c492964484149e77ba120a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1947999453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947999450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eda3bfb302160b47850df6e5a57b6b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invertRotationAxis: 0
 --- !u!1 &1954207714
 GameObject:
   m_ObjectHideFlags: 0
