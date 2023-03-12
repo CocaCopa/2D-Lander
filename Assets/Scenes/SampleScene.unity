@@ -280,6 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 2085007525}
+  defaultData: {fileID: 11400000, guid: 4878f85a9c7761c4f92d9453f8e68cca, type: 2}
   m_data: {fileID: 11400000, guid: 4878f85a9c7761c4f92d9453f8e68cca, type: 2}
 --- !u!1 &519420028
 GameObject:

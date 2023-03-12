@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 201da501c2c598948acc56687352d56a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempScene: SampleScene
+  testScene: SampleScene
   selectSpaceship: SpaceshipSelection
 --- !u!4 &22626344
 Transform:

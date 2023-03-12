@@ -30,7 +30,7 @@ public class PlayerFuel : MonoBehaviour
 
     public void InitializeVariables() {
 
-        SpaceshipData m_data = PlayerManager.instance.m_data;
+        SpaceshipData m_data = PlayerManager.instance.GetShipData;
         fuelMaxCapacity = m_data.fuelCapacity;
         fuelConsumptionRate = m_data.fuelConsumptionRate;
         remainingFuel = fuelMaxCapacity;

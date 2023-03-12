@@ -22,11 +22,11 @@ public class PlayerMovement : MonoBehaviour
         playerRb = GetComponent<Rigidbody2D>();
 
         PlayerManager manager = PlayerManager.instance;
-        forceAmount     = manager.m_data.force;
-        maxSteerAngle   = manager.m_data.maxSteerAngle;
-        maxVelocity     = manager.m_data.maxVeclocity;
-        playerRb.mass   = manager.m_data.shipMass;
-        rotationSpeed   = manager.m_data.rotationSpeed;
+        forceAmount     = manager.GetShipData.force;
+        maxSteerAngle   = manager.GetShipData.maxSteerAngle;
+        maxVelocity     = manager.GetShipData.maxVeclocity;
+        playerRb.mass   = manager.GetShipData.shipMass;
+        rotationSpeed   = manager.GetShipData.rotationSpeed;
     }
 
     /// <summary>

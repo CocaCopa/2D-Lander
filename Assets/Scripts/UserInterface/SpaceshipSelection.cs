@@ -1,34 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpaceshipSelection : MonoBehaviour
 {
-    [SerializeField] GameObject shipHolder;
+    public GameObject shipHolder;
+    public float shipSpacing = 6;
     [SerializeField] float UISwipeSpeed = 8;
-    [SerializeField] float shipSpacing = 6;
 
     Vector3 offset;
     Vector3 targetPosition;
-    
+
+    #region Public:
     public void NextSpaceship() {
 
-        SetTargetPosition(true);
+        SwipeRight(true);
     }
 
     public void PreviousSpaceship() {
 
-        SetTargetPosition(false);
+        SwipeRight(false);
     }
 
     public void SelectSpaceship() {
 
-
+        Collider2D ship = Physics2D.OverlapCircle(Vector2.zero, 0.1f);        
+        SpaceshipData.m_data = ship.GetComponent<MyData>().SpaceshipData;
+        ManageScenes.instance.StartGame();
     }
+    #endregion
 
+    #region Private:
     private void Awake() {
 
-        SetSpaceshipPositions();
+        offset = new Vector3(shipSpacing, 0, 0);
     }
 
     private void Update() {
@@ -43,27 +47,14 @@ public class SpaceshipSelection : MonoBehaviour
         return Vector2.Lerp(currentPosition, targetPosition, lerpTime);
     }
 
-    private void SetTargetPosition(bool moveLeft) {
+    private void SwipeRight(bool swipeRight) {
 
-        float direction = moveLeft ? 1 : -1;
+        float direction = swipeRight ? 1 : -1;
         targetPosition -= direction * offset;
 
         float minValue = (-shipHolder.transform.childCount + 1) * offset.x;
         float maxValue = 0;
         targetPosition.x = Mathf.Clamp(targetPosition.x, minValue, maxValue);
     }
-
-    private void SetSpaceshipPositions() {
-
-        offset = new Vector3(shipSpacing, 0, 0);
-        Vector3 shipPosition = Vector3.zero;
-
-        for (int i = 0; i < shipHolder.transform.childCount; i++) {
-
-            GameObject spaceship = shipHolder.transform.GetChild(i).gameObject;
-            spaceship.transform.position = shipPosition;
-
-            shipPosition += offset;
-        }
-    }
+    #endregion
 }

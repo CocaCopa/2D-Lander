@@ -10,10 +10,9 @@ public class PlayerManager : MonoBehaviour
     }
 
     [SerializeField] GameObject playerObject;
-    // TODO: Once more spaceships will be added, a "List<>()" containing all of the different ship stats will be added as well.
-    // "Playermanager" should then check which spaceship the player chose, in order to initialize "m_data" with the correct value.
-    // That said, all of the scripts reading the "m_data" variable, will get the correct information.
-    public SpaceshipData m_data;
+    [SerializeField] SpaceshipData defaultData;
+    public SpaceshipData GetShipData { get { return m_data; } }
+    SpaceshipData m_data;
 
     Rigidbody2D playerRB;
     LandingTrigger landingTrigger;
@@ -28,8 +27,9 @@ public class PlayerManager : MonoBehaviour
     private void Awake() {
 
         instance = this;
+        InitializeShipData();
+        InitializeVariables();
         PlayerState.SetCurrentState(PlayerState.Player_State.CinematicEntrance);
-        Initialize();
     }
 
     private void Update() {
@@ -133,8 +133,8 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private void Initialize() {
-
+    private void InitializeVariables() {
+        
         playerRB            = playerObject.GetComponent<Rigidbody2D>();
         landingTrigger      = FindObjectOfType<LandingTrigger>();
         playerCollision     = playerObject.GetComponent<PlayerCollisionCheck>();
@@ -142,5 +142,14 @@ public class PlayerManager : MonoBehaviour
         playerAutoPilot     = playerObject.GetComponent<PlayerAutoPilot>();
         input               = FindObjectOfType<PlayerInput>();
         playerController    = FindObjectOfType<PlayerController>();
+    }
+
+    private void InitializeShipData() {
+
+        m_data = SpaceshipData.m_data;
+        if (m_data == null) {
+            m_data = defaultData;
+        }
+        playerObject.GetComponentInChildren<SpriteRenderer>().sprite = m_data.shipSprite;
     }
 }
