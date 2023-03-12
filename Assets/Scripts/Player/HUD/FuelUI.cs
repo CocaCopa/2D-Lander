@@ -22,13 +22,13 @@ public class FuelUI : MonoBehaviour
 
     private void BarFillAmount() {
 
-        fuelImageLeft.fillAmount = playerFuel.GetRemainingFuel / playerFuel.GetMaxFuel;
+        fuelImageLeft.fillAmount = 
         fuelImageRight.fillAmount = playerFuel.GetRemainingFuel / playerFuel.GetMaxFuel;
     }
 
     private void BarGradientColor() {
 
-        fuelImageLeft.color = fuelBarColor.Evaluate(fuelImageLeft.fillAmount);
-        fuelImageRight.color = fuelBarColor.Evaluate(fuelImageRight.fillAmount);
+        fuelImageLeft.color =
+        fuelImageRight.color = fuelBarColor.Evaluate(fuelImageLeft.fillAmount);
     }
 }

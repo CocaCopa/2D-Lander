@@ -99,14 +99,20 @@ public class PlayerManager : MonoBehaviour
 
     private void GameplayState() {
 
-        playerRB.simulated = true;
-        playerController.enabled = true;
+        if (playerRB.simulated == false) {
+
+            playerRB.simulated = true;
+            playerController.enabled = true;
+        }
     }
 
     private void AutoPilotState() {
 
-        playerRB.simulated = false;
-        playerController.enabled = false;
+        if (playerRB.simulated == true) {
+
+            playerRB.simulated = false;
+            playerController.enabled = false;
+        }
         playerAutoPilot.HandleAutoLanding();
     }
 

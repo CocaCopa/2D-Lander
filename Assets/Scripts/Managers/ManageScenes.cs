@@ -8,6 +8,7 @@ public class ManageScenes : MonoBehaviour
     [Header("--- Scene Names ---")]
     [SerializeField] string testScene;
     [SerializeField] string selectSpaceship;
+    [SerializeField] string levelSelection;
 
     private void Awake() {
 
@@ -22,6 +23,11 @@ public class ManageScenes : MonoBehaviour
     public void SpaceshipSelection() {
 
         SceneManager.LoadScene(selectSpaceship);
+    }
+
+    public void LevelSelection() {
+
+
     }
 
     public void ReloadLevel() {
