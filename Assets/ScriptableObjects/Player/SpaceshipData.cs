@@ -10,8 +10,8 @@ public class SpaceshipData : ScriptableObject
     #region Constants:
     public const float maxHealthPoints          = 100;
     public const float maxSteerAngle            = 180;
-    public const float maxFuelCapacity          = 150;
-    public const float maxFuelConsumptionRate   = 150;
+    public const float maxFuelCapacity          = 300;
+    public const float maxFuelConsumptionRate   = 300;
     public const float maxShipMass              = 100;
     public const float maxForce                 = 50;
     public const float maxVeclocity             = 70;

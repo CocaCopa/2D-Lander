@@ -8,8 +8,8 @@ public class FloatingObject : MonoBehaviour
     [SerializeField] Transform targetPoint;
     [SerializeField] AnimationCurve curve;
     [Space(15.0f)]
-    [SerializeField] float speed = 0.4f;
-    [SerializeField] float waitTime = 0.1f;
+    [SerializeField] float speed = 0.2f;
+    [SerializeField] float waitTime = 0.01f;
 
     Vector3 startPosition;
     Vector3 targetPosition;
