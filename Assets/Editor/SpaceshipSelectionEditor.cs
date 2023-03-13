@@ -24,13 +24,16 @@ public class SpaceshipSelectionEditor : Editor {
 
             SetStatSliders();
         }
+
         GUILayout.Space(8);
+
         if (GUILayout.Button("Save Scene")) {
 
             SaveScene();
         }
     }
 
+    #region GUI Buttons:
     private void SaveScene() {
 
         string currentScenePath = EditorSceneManager.GetActiveScene().path;
@@ -42,7 +45,6 @@ public class SpaceshipSelectionEditor : Editor {
         SpaceshipSelection spaceshipSelection = FindObjectOfType<SpaceshipSelection>();
         GameObject shipHolder = spaceshipSelection.ShipHolder;
         float shipSpacing = spaceshipSelection.ShipSpacing;
-
         Vector3 offset = new Vector3 (shipSpacing, 0, 0);
         Vector3 shipPosition = Vector3.zero;
 
@@ -90,4 +92,5 @@ public class SpaceshipSelectionEditor : Editor {
 
         return stats;
     }
+    #endregion
 }

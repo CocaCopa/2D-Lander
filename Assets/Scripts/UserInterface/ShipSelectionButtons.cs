@@ -7,13 +7,15 @@ public class ShipSelectionButtons : MonoBehaviour
     public void NextSpaceship() {
 
         SpaceshipSelection spaceshipSelection = FindObjectOfType<SpaceshipSelection>();
-        spaceshipSelection.SwipeRight(true);
+        spaceshipSelection.SwipeLeft(true);
+        spaceshipSelection.ToggleStatsUI(true);
     }
 
     public void PreviousSpaceship() {
 
         SpaceshipSelection spaceshipSelection = FindObjectOfType<SpaceshipSelection>();
-        spaceshipSelection.SwipeRight(false);
+        spaceshipSelection.SwipeLeft(false);
+        spaceshipSelection.ToggleStatsUI(false);
     }
 
     public void SelectSpaceship() {

@@ -7,6 +7,7 @@ public class SpaceshipData : ScriptableObject
 {
     public static SpaceshipData m_data;
 
+    #region Constants:
     public const float maxHealthPoints          = 100;
     public const float maxSteerAngle            = 180;
     public const float maxFuelCapacity          = 150;
@@ -15,6 +16,7 @@ public class SpaceshipData : ScriptableObject
     public const float maxForce                 = 50;
     public const float maxVeclocity             = 70;
     public const float maxRotationSpeed         = 300;
+    #endregion
 
                                             public Sprite shipSprite;
     [Range(0.01f, maxHealthPoints)]         public float healthPoints;
