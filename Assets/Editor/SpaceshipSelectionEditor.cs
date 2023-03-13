@@ -59,7 +59,8 @@ public class SpaceshipSelectionEditor : Editor {
 
     private void SetStatSliders() {
 
-        SpaceshipSelection spaceshipSelection = FindObjectOfType<SpaceshipSelection>();
+        SpaceshipSelection spaceshipSelection = (SpaceshipSelection)target;
+        //SpaceshipSelection spaceshipSelection = FindObjectOfType<SpaceshipSelection>();
         GameObject shipHolder = spaceshipSelection.ShipHolder;
 
         for (int i = 0; i < shipHolder.transform.childCount; i++) {
@@ -92,5 +93,7 @@ public class SpaceshipSelectionEditor : Editor {
 
         return stats;
     }
+
+
     #endregion
 }

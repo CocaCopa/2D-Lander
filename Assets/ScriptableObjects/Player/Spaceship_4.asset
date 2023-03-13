@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Spaceship_4
   m_EditorClassIdentifier: 
   shipSprite: {fileID: 166191581699150688, guid: bd6245ed2e9025747978df2342e7deb8, type: 3}
-  healthPoints: 24.4
-  fuelCapacity: 126
-  fuelConsumptionRate: 50
-  rotationSpeed: 158
-  steerAngle: 56
-  maximumVeclocity: 17.8
-  shipMass: 30.6
-  force: 24.5
+  healthPoints: 46.3
+  fuelCapacity: 257
+  fuelConsumptionRate: 51
+  rotationSpeed: 172
+  steerAngle: 71
+  maximumVeclocity: 7
+  shipMass: 44.6
+  force: 31.3
