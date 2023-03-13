@@ -1,33 +1,18 @@
+using System;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SpaceshipSelection : MonoBehaviour
 {
-    public GameObject shipHolder;
-    public float shipSpacing = 6;
+    [SerializeField] GameObject shipHolder;
+    [SerializeField] float shipSpacing = 15;
     [SerializeField] float UISwipeSpeed = 8;
+
+    public GameObject ShipHolder { get { return shipHolder; } }
+    public float ShipSpacing { get { return shipSpacing; } }
 
     Vector3 offset;
     Vector3 targetPosition;
-
-    #region Public:
-    public void NextSpaceship() {
-
-        SwipeRight(true);
-    }
-
-    public void PreviousSpaceship() {
-
-        SwipeRight(false);
-    }
-
-    public void SelectSpaceship() {
-
-        Collider2D ship = Physics2D.OverlapCircle(Vector2.zero, 0.1f);        
-        SpaceshipData.m_data = ship.GetComponent<MyData>().SpaceshipData;
-        ManageScenes.instance.StartGame();
-    }
-    #endregion
 
     #region Private:
     private void Awake() {
@@ -47,7 +32,7 @@ public class SpaceshipSelection : MonoBehaviour
         return Vector2.Lerp(currentPosition, targetPosition, lerpTime);
     }
 
-    private void SwipeRight(bool swipeRight) {
+    public void SwipeRight(bool swipeRight) {
 
         float direction = swipeRight ? 1 : -1;
         targetPosition -= direction * offset;

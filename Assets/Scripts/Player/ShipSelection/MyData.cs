@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class MyData : MonoBehaviour
 {
-    public SpaceshipData SpaceshipData { get { return myData; } }
+    public SpaceshipData GetSpaceshipData { get { return myData; } }
     [SerializeField] SpaceshipData myData;
 }

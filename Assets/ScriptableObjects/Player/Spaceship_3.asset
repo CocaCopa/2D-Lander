@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shipSprite: {fileID: -8133393088106438332, guid: bd6245ed2e9025747978df2342e7deb8, type: 3}
   healthPoints: 100
-  maxSteerAngle: 80
   fuelCapacity: 20
   fuelConsumptionRate: 5
+  rotationSpeed: 250
+  steerAngle: 110
+  maximumVeclocity: 3.5
   shipMass: 10
   force: 15
-  maxVeclocity: 30
-  rotationSpeed: 250

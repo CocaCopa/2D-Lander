@@ -23,8 +23,8 @@ public class PlayerMovement : MonoBehaviour
 
         PlayerManager manager = PlayerManager.instance;
         forceAmount     = manager.GetShipData.force;
-        maxSteerAngle   = manager.GetShipData.maxSteerAngle;
-        maxVelocity     = manager.GetShipData.maxVeclocity;
+        maxSteerAngle   = manager.GetShipData.steerAngle;
+        maxVelocity     = manager.GetShipData.maximumVeclocity;
         playerRb.mass   = manager.GetShipData.shipMass;
         rotationSpeed   = manager.GetShipData.rotationSpeed;
     }
